@@ -1,0 +1,35 @@
+ 
+method_name: "regression"
+
+save_top_path: "/home/cnn_attitude_estimator_log/test_2021_06_21"
+weights_path: "/weights"
+log_path: "/log"
+graph_path: "/graph"
+
+train:
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_01_image70000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image140000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_03_image140000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_04_image140000/"
+valid:
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image70000/"
+csv_name: "image_attitude.csv"
+
+index_csv_path: "/home/ros_catkin_ws/src/cnn_attitude_estimator/index_dict/index_dict_360x1range_step1deg.csv"
+
+multiGPU: 1 #1 is ture
+
+hyperparameter:
+  original_size: 672
+  resize: 224
+  mean_element: 0.5
+  std_element: 0.5
+  hor_fov_deg: 70
+  optimizer_name: "Adam"
+  lr_cnn: 4e-5
+  lr_fc: 4e-5
+  weight_decay: 0.0001
+  batch_size: 512
+  num_epochs: 70
+  dropout_rate: 0.1
+  dim_fc_out: 2
