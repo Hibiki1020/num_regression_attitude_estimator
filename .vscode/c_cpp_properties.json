@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/amsl/AirSim/ros/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/amsl/AirSim/ros/src/airsim_ros_pkgs/include/**",
+        "/home/amsl/catkin_ws/src/bnn_attitude_predictor_with_image/include/**",
+        "/home/amsl/catkin_ws/src/cnn_attitude_estimator/include/**",
+        "/home/amsl/catkin_ws/src/dnn_attitude_predictor_with_image/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
