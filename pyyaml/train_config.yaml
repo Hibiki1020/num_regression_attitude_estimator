@@ -8,9 +8,9 @@ graph_path: "/graph"
 
 train:
   - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_01_image70000/"
-  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image140000/"
-  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_03_image140000/"
-  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_04_image140000/"
+#  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image140000/"
+#  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_03_image140000/"
+#  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_04_image140000/"
 valid:
   - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image70000/"
 csv_name: "image_attitude.csv"
@@ -29,7 +29,7 @@ hyperparameter:
   lr_cnn: 4e-5
   lr_fc: 4e-5
   weight_decay: 0.0001
-  batch_size: 512
-  num_epochs: 70
+  batch_size: 8
+  num_epochs: 3
   dropout_rate: 0.1
   dim_fc_out: 2
