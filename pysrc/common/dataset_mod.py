@@ -20,6 +20,7 @@ class Originaldataset(data.Dataset):
         deg_list = [float(roll_str), float(pitch_str)]
 
         img_pil = Image.open(img_path)
+        img_pil = img_pil.convert("RGB")
         deg_numpy = np.array(deg_list)
 
         img_trans, deg_trans = self.transform(img_pil, deg_numpy, phase=self.phase)
