@@ -84,7 +84,7 @@ if __name__ == '__main__':
         print("Error copying files, check permissions. Exiting....")
         quit()
 
-    train_dataset = dataset_mod.ClassOriginaldataset(
+    train_dataset = dataset_mod.Originaldataset(
         data_list = make_datalist_mod.makeMultiDataList(train_sequences, csv_name),
         transform = data_transform_mod.DataTransform(
             resize,
@@ -96,7 +96,7 @@ if __name__ == '__main__':
         dim_fc_out = dim_fc_out
     )
 
-    valid_dataset = dataset_mod.ClassOriginaldataset(
+    valid_dataset = dataset_mod.Originaldataset(
         data_list = make_datalist_mod.makeMultiDataList(valid_sequences, csv_name),
         transform = data_transform_mod.DataTransform(
             resize,
