@@ -41,7 +41,7 @@ class Network(nn.Module):
         return list_cnn_param_value, list_fc_param_value
 
     def forward(self, x):
-        x = self.cnn(x)
+        x = self.cnn_feature(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)
         l2norm = torch.norm(x[:, :2].clone(), p=2, dim=1, keepdim=True)
