@@ -90,8 +90,7 @@ if __name__ == '__main__':
             mean_element,
             std_element,
         ),
-        phase = "train",
-        dim_fc_out = dim_fc_out
+        phase = "train"
     )
 
     valid_dataset = dataset_mod.Originaldataset(
@@ -101,8 +100,7 @@ if __name__ == '__main__':
             mean_element,
             std_element,
         ),
-        phase = "valid",
-        dim_fc_out = dim_fc_out
+        phase = "valid"
     )
 
     ##Network
