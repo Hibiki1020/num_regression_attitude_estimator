@@ -14,7 +14,6 @@ class DataTransform():
         self.std = std
         size = (resize, resize)
         self.img_transform = transforms.Compose([
-            transforms.Grayscale(num_output_channels=1),
             transforms.Resize(size),
             transforms.CenterCrop(resize),
             transforms.ToTensor(),
