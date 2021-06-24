@@ -17,7 +17,7 @@ class DataTransform():
             transforms.Resize(size),
             transforms.CenterCrop(resize),
             transforms.ToTensor(),
-            transforms.Normalize((mean,), (std,))
+            transforms.Normalize(mean, std )
         ])
 
     def __call__(self, img_pil, deg_numpy, phase="train"):
