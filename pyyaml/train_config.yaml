@@ -15,7 +15,7 @@ valid:
   - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_02_image70000/"
 csv_name: "image_attitude.csv"
 
-multiGPU: 1 #1 is ture
+multiGPU: 0 #1 is ture
 
 hyperparameter:
   original_size: 672

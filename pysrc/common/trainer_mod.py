@@ -12,6 +12,8 @@ import torch.optim as optim
 import torch.backends.cudnn as cudnn
 from tensorboardX import SummaryWriter
 
+
+
 class Trainer:
     def __init__(self,
     method_name,
