@@ -55,7 +55,6 @@ if __name__ == '__main__':
     log_path = CFG["save_top_path"] + CFG["log_path"]
     graph_path = CFG["save_top_path"] + CFG["graph_path"]
     csv_name = CFG["csv_name"]
-    index_csv_path = CFG["index_csv_path"]
     multiGPU = int(CFG["multiGPU"])
 
     train_sequences = CFG["train"]
