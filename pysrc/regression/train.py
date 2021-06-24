@@ -92,7 +92,6 @@ if __name__ == '__main__':
             std_element,
         ),
         phase = "train",
-        index_dict_path = index_csv_path,
         dim_fc_out = dim_fc_out
     )
 
@@ -104,7 +103,6 @@ if __name__ == '__main__':
             std_element,
         ),
         phase = "valid",
-        index_dict_path = index_csv_path,
         dim_fc_out = dim_fc_out
     )
 
