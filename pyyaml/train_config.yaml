@@ -1,7 +1,7 @@
  
 method_name: "regression"
 
-save_top_path: "/home/cnn_attitude_estimator_log/test_2021_06_21"
+save_top_path: "/home/num_regression_attitude_estimator_log/test_06_24"
 weights_path: "/weights"
 log_path: "/log"
 graph_path: "/graph"
@@ -15,7 +15,7 @@ valid:
   - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image70000/"
 csv_name: "image_attitude.csv"
 
-index_csv_path: "/home/ros_catkin_ws/src/cnn_attitude_estimator/index_dict/index_dict_360x1range_step1deg.csv"
+index_csv_path: "/home/ros_catkin_ws/src/num_regression_attitude_estimator/index_dict/index_dict_360x1range_step1deg.csv"
 
 multiGPU: 1 #1 is ture
 
