@@ -13,10 +13,10 @@ class Network(nn.Module):
         self.fc = nn.Sequential(
             nn.Linear(dim_fc_in, 100),
             nn.ReLU(inplace=True),
-            nn.Dropout(p=0.1),
+            nn.Dropout(p=dropout_rate),
             nn.Linear(100, 18),
             nn.ReLU(inplace=True),
-            nn.Dropout(p=0.1),
+            nn.Dropout(p=dropout_rate),
             nn.Linear(18, dim_fc_out)
         )
 
@@ -44,6 +44,6 @@ class Network(nn.Module):
         x = self.cnn_feature(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)
-        l2norm = torch.norm(x[:, :2].clone(), p=2, dim=1, keepdim=True)
-        x[:, :2] = torch.div(x[:, :2].clone(), l2norm)  #L2Norm, |(gx, gy, gz)| = 1
+        l2norm = torch.norm(x[:, :3].clone(), p=2, dim=1, keepdim=True)
+        x[:, :3] = torch.div(x[:, :3].clone(), l2norm)  #L2Norm, |(gx, gy, gz)| = 1
         return x

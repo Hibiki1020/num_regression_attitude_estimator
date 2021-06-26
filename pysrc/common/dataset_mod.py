@@ -16,8 +16,9 @@ class Originaldataset(data.Dataset):
 
         roll_str = self.data_list[index][4]
         pitch_str = self.data_list[index][5]
+        yaw_str = self.data_list[index][6]
 
-        deg_list = [float(roll_str), float(pitch_str)]
+        deg_list = [float(roll_str), float(pitch_str), float(yaw_str)]
 
         img_pil = Image.open(img_path)
         img_pil = img_pil.convert("RGB")
