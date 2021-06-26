@@ -30,4 +30,4 @@ hyperparameter:
   batch_size: 8
   num_epochs: 50
   dropout_rate: 0.1
-  dim_fc_out: 2
+  dim_fc_out: 3
