@@ -8,14 +8,14 @@ graph_path: "/graph"
 
 train:
   - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_01_image70000/"
-  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_02_image140000/"
-  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_03_image140000/"
-  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_04_image140000/"
+#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_02_image140000/"
+#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_03_image140000/"
+#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_04_image140000/"
 valid:
   - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_02_image70000/"
 csv_name: "image_attitude.csv"
 
-multiGPU: 1 #1 is ture
+multiGPU: 0 #1 is ture
 
 hyperparameter:
   original_size: 672
@@ -27,7 +27,7 @@ hyperparameter:
   lr_cnn: 4e-5
   lr_fc: 4e-5
   weight_decay: 0.0001
-  batch_size: 512
+  batch_size: 8
   num_epochs: 50
   dropout_rate: 0.1
   dim_fc_out: 3
