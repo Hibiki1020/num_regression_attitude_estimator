@@ -23,7 +23,8 @@ class Trainer:
     criterion,
     optimizer_name,
     lr_cnn,
-    lr_fc,
+    lr_roll_fc,
+    lr_pitch_fc,
     weight_decay,
     batch_size,
     num_epochs,
@@ -50,9 +51,9 @@ class Trainer:
         self.dataloaders_dict = self.getDataloader(train_dataset, valid_dataset, batch_size)
         self.net = self.getSetNetwork(net)
         self.criterion = criterion
-        self.optimizer = self.getOptimizer(optimizer_name, lr_cnn, lr_fc)
+        self.optimizer = self.getOptimizer(optimizer_name, lr_cnn, lr_roll_fc, lr_pitch_fc)
         self.num_epochs = num_epochs
-        self.str_hyperparameter = self.getStrHyperparameter(method_name, train_dataset, optimizer_name, lr_cnn, lr_fc, batch_size)
+        self.str_hyperparameter = self.getStrHyperparameter(method_name, train_dataset, optimizer_name, lr_cnn, lr_roll_fc, lr_pitch_fc,batch_size)
 
     def setRandomCondition(self, keep_reproducibility=False): #Random Training Environment
         #Refer https://nuka137.hatenablog.com/entry/2020/09/01/080038
