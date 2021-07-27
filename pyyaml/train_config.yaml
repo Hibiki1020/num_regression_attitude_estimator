@@ -1,21 +1,22 @@
  
 method_name: "regression"
 
-save_top_path: "/home/ssd_dir/num_regression_attitude_estimator_log/test2"
+save_top_path: "/home/num_regression_attitude_estimator_log/test2021_07_27"
 weights_path: "/weights"
 log_path: "/log"
 graph_path: "/graph"
 
 train:
-  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_01_image70000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_02_image140000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_03_image140000/"
-#  - "/home/ssd_dir/airsim_dataset_kawai/2021_06_04_image140000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_01_image70000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image140000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_03_image140000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_04_image70000"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_04_image140000/"
 valid:
-  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/2021_06_02_image70000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/2021_06_02_image70000/"
 csv_name: "image_attitude.csv"
 
-multiGPU: 0 #1 is ture
+multiGPU: 1 #1 is ture
 
 hyperparameter:
   original_size: 672
@@ -24,10 +25,10 @@ hyperparameter:
   std_element: 0.5
   hor_fov_deg: 70
   optimizer_name: "Adam"
-  lr_cnn: 4e-5
-  lr_fc: 4e-5
+  lr_cnn: 1e-5
+  lr_fc: 1e-5
   weight_decay: 0.0001
-  batch_size: 8
+  batch_size: 640
   num_epochs: 50
   dropout_rate: 0.1
   dim_fc_out: 3
