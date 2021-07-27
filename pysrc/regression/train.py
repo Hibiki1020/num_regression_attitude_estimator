@@ -68,7 +68,8 @@ if __name__ == '__main__':
     hor_fov_deg = CFG["hyperparameter"]["hor_fov_deg"]
     optimizer_name = CFG["hyperparameter"]["optimizer_name"]
     lr_cnn = float(CFG["hyperparameter"]["lr_cnn"])
-    lr_fc = float(CFG["hyperparameter"]["lr_fc"])
+    lr_roll_fc = float(CFG["hyperparameter"]["lr_roll_fc"])
+    lr_pitch_fc = float(CFG["hyperparameter"]["lr_pitch_fc"])
     weight_decay = float(CFG["hyperparameter"]["weight_decay"])
     batch_size = CFG["hyperparameter"]["batch_size"]
     num_epochs = CFG["hyperparameter"]["num_epochs"]
