@@ -150,13 +150,15 @@ class FrameInfer:
         yaw_array = []
 
         for i in range(self.num_sampling):
-            inferenced_x = self.net(input_tensor)
-            print(inferenced_x)
+            inferenced_x = self.net(input_tensor)/3.141592*180.0
+            
+            #print(inferenced_x)
+            
             inferenced_x = inferenced_x.to('cpu').detach().numpy().copy()
             
-            roll_array.append(inferenced_x[0])
-            pitch_array.append(inferenced_x[1])
-            yaw_array.append(inferenced_x[2])
+            roll_array.append(inferenced_x[0][0])
+            pitch_array.append(inferenced_x[0][1])
+            yaw_array.append(inferenced_x[0][2])
 
         return np.array(roll_array), np.array(pitch_array), np.array(yaw_array)
 
