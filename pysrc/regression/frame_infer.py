@@ -139,8 +139,32 @@ class FrameInfer:
 
         return image_data_list, ground_truth_list
 
+    def cvToPIL(self, img_cv):
+        img_pil = Image.fromarray(img_cv)
+        return img_pil
+    
     def transformImage(self, image):
-        #image_cv = cv2.cvtColor(image)
+        img_pil = self.cvToPIL(image)
+        img_tensor = self.img_transform(img_pil)
+        inputs = img_tensor.unsqueeze_(0)
+        inputs = inputs.to(self.device)
+        #print(inputs)
+        return inputs
+
+    def prediction(self, input_tensor):
+        roll_array = []
+        pitch_array = []
+        yaw_array = []
+
+        for i in range(self.num_sampling):
+            inferenced_x = self.net(input_tensor)
+            inferenced_x = inferenced_x.to('cpu').detach().numpy().copy()
+            
+            roll_array.append(inferenced_x[0])
+            pitch_array.append(inferenced_x[1])
+            yaw_array.append(inferenced_x[2])
+
+        return np.array(roll_array), np.array(pitch_array), np.array(yaw_array)
 
     def frame_infer(self, image_data_list, ground_truth_list):
         print("Start Inference")
@@ -154,6 +178,20 @@ class FrameInfer:
 
             image = cv2.imread(img_path)
             input_tensor = self.transformImage(image)
+            
+            roll_array, pitch_array, yaw_array = self.prediction(input_tensor)
+
+            roll = np.average(roll_array)
+            pitch = np.average(pitch_array)
+            yaw = np.average(yaw_array)
+
+            print("Infered Roll:  " + str(roll) +  "[deg]")
+            print("GT Roll:       " + str(ground_truth[1]) + "[deg]")
+            print("Infered Pitch: " + str(pitch) + "[deg]")
+            print("GT Pitch:      " + str(ground_truth[2]) + "[deg]")
+
+
+        return result_csv
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("./frame_infer.py")
