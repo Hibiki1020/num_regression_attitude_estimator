@@ -75,8 +75,9 @@ class FrameInfer:
 
         img_transform = transforms.Compose([
             transforms.Resize(size),
+            transforms.CenterCrop(resize),
             transforms.ToTensor(),
-            transforms.Normalize((mean,), (std,))
+            transforms.Normalize(mean, std )
         ])
 
         return img_transform
@@ -189,9 +190,29 @@ class FrameInfer:
             print("GT Roll:       " + str(ground_truth[1]) + "[deg]")
             print("Infered Pitch: " + str(pitch) + "[deg]")
             print("GT Pitch:      " + str(ground_truth[2]) + "[deg]")
+            print("Infered Yaw:   " + str(yaw) + "[deg]")
+            print("GT Yaw:        " + str(ground_truth[3]) + "[deg]")
 
+            tmp_result = [roll, pitch, ground_truth[1], ground_truth[2]]
+            result_csv.append(tmp_result)
+
+            print("Period [s]: ", time.time() - start_clock)
+            print("---------------------")
+
+            cv2.imshow('image',image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
 
         return result_csv
+
+    def save_csv(self, result_csv):
+        result_csv_path = os.path.join(self.infer_log_top_directory, self.infer_log_file_name)
+        csv_file = open(result_csv_path, 'w')
+        csv_w = csv.writer(csv_file)
+        for row in result_csv:
+            csv_w.writerow(row)
+        csv_file.close()
+        print("Save Inference Data")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("./frame_infer.py")
