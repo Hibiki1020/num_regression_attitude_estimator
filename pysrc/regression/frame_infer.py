@@ -115,7 +115,7 @@ class FrameInfer:
 
     def get_data(self):
         image_data_list = []
-        ground_truth_list = []
+        data_list = []
 
         csv_path = os.path.join(self.infer_dataset_top_directory, self.csv_name)
 
@@ -128,9 +128,9 @@ class FrameInfer:
 
                 image_data_list.append(img_path)
                 tmp_row = [row[0], gt_roll, gt_pitch]
-                image_data_list.append(tmp_row)
+                data_list.append(tmp_row)
 
-        return image_data_list, ground_truth_list
+        return image_data_list, data_list
 
     def cvToPIL(self, img_cv):
         img_pil = Image.fromarray(img_cv)
