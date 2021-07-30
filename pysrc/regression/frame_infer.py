@@ -198,6 +198,8 @@ class FrameInfer:
             cv2.waitKey(0)
             cv2.destroyAllWindows()
 
+            infer_count += 1
+
         return result_csv
 
     def save_csv(self, result_csv):
