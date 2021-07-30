@@ -182,8 +182,8 @@ class FrameInfer:
             print("GT Roll:       " + str(ground_truth[1]) + "[deg]")
             print("Infered Pitch: " + str(pitch) + "[deg]")
             print("GT Pitch:      " + str(ground_truth[2]) + "[deg]")
-            print("Infered Yaw:   " + str(yaw) + "[deg]")
-            print("GT Yaw:        " + str(ground_truth[3]) + "[deg]")
+            #print("Infered Yaw:   " + str(yaw) + "[deg]")
+            #print("GT Yaw:        " + str(ground_truth[3]) + "[deg]")
 
             tmp_result = [roll, pitch, ground_truth[1], ground_truth[2]]
             result_csv.append(tmp_result)
