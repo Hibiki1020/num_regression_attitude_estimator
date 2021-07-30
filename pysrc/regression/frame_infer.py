@@ -54,18 +54,10 @@ class FrameInfer:
         self.net = self.getNetwork(self.resize, self.weights_path, self.dim_fc_out, self.dropout_rate)
         self.do_mc_dropout = self.enable_mc_dropout()
 
-        self.value_dict = []
-
         self.image_data_list = []
         self.ground_truth_list = []
 
         self.result_csv = []
-
-        with open(self.index_dict_path) as fd:
-            reader = csv.reader(fd)
-            for row in reader:
-                num = float(row[0])
-                self.value_dict.append(num)
 
 
     def getImageTransform(self, resize, mean_element, std_element):
