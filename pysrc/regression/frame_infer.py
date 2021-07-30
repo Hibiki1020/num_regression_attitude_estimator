@@ -188,7 +188,8 @@ class FrameInfer:
             #print("Infered Yaw:   " + str(yaw) + "[deg]")
             #print("GT Yaw:        " + str(ground_truth[3]) + "[deg]")
 
-            tmp_result = [roll, pitch, ground_truth[1], ground_truth[2]]
+            #image roll, pitch, GTroll, GTpitch
+            tmp_result = [ground_truth[0], roll, pitch, ground_truth[1], ground_truth[2]]
             result_csv.append(tmp_result)
 
             print("Period [s]: ", time.time() - start_clock)
