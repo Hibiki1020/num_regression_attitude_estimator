@@ -151,6 +151,7 @@ class FrameInfer:
 
         for i in range(self.num_sampling):
             inferenced_x = self.net(input_tensor)
+            print(inferenced_x)
             inferenced_x = inferenced_x.to('cpu').detach().numpy().copy()
             
             roll_array.append(inferenced_x[0])
