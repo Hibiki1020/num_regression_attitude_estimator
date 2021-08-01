@@ -66,8 +66,8 @@ class FrameInfer:
         size = (resize, resize)
 
         img_transform = transforms.Compose([
-            transforms.Resize(size),
             transforms.CenterCrop(resize),
+            transforms.Resize(size),
             transforms.ToTensor(),
             transforms.Normalize(mean, std )
         ])
