@@ -213,6 +213,7 @@ class FrameInfer:
             csv_w.writerow(row)
         csv_file.close()
         print("Save Inference Data")
+        print(result_csv_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("./frame_infer.py")
