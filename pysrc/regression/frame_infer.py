@@ -112,6 +112,7 @@ class FrameInfer:
     def spin(self):
         self.image_data_list, self.ground_truth_list = self.get_data()
         self.result_csv = self.frame_infer(self.image_data_list, self.ground_truth_list)
+        self.save_csv(self.result_csv)
 
     def get_data(self):
         image_data_list = []
