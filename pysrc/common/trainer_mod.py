@@ -147,8 +147,8 @@ class Trainer:
                     self.net.eval()
                 
                 ##skip
-                if (epoch == 0) and (phase== "train"):
-                    continue
+                #if (epoch == 0) and (phase== "train"):
+                #    continue
 
                 epoch_loss = 0.0
                 for inputs, labels in tqdm(self.dataloaders_dict[phase]):
