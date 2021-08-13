@@ -7,7 +7,7 @@ class Network(nn.Module):
         super(Network, self).__init__()
 
         vgg = models.vgg16(pretrained=use_pretrained_vgg)
-        self.cnn_feature = vgg.features
+        self.cnn = vgg.features
 
         dim_fc_in = 512*(resize//32)*(resize//32)
         self.fc = nn.Sequential(
@@ -38,7 +38,7 @@ class Network(nn.Module):
         return list_cnn_param_value, list_fc_param_value
 
     def forward(self, x):
-        x = self.cnn_feature(x)
+        x = self.cnn(x)
         x = torch.flatten(x, 1)
         x = self.fc(x)
         l2norm = torch.norm(x[:, :3].clone(), p=2, dim=1, keepdim=True)
