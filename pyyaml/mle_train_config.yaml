@@ -1,6 +1,6 @@
 method_name: "regression"
 
-save_top_path: "/home/ssd_dir/kawai_image_to_gravity_log/test4/"
+save_top_path: "/home/ssd_dir/kawai_image_to_gravity_log/test5/"
 
 train:
 #  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/dir2_image70000/"
@@ -25,5 +25,5 @@ hyperparameter:
   batch_size: 50
   num_epochs: 10
   dropout_rate: 0.1
-  weight_decay: 0.0
+  weight_decay: 0.01
   dim_fc_out: 9
