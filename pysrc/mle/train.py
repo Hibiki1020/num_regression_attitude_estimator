@@ -64,6 +64,7 @@ if __name__ == '__main__':
     batch_size = CFG["hyperparameter"]["batch_size"]
     num_epochs = CFG["hyperparameter"]["num_epochs"]
     dropout_rate = float(CFG["hyperparameter"]["dropout_rate"])
+    weight_decay = float(CFG["hyperparameter"]["weight_decay"])
     dim_fc_out = int(CFG["hyperparameter"]["dim_fc_out"])
 
     try:
@@ -105,6 +106,7 @@ if __name__ == '__main__':
         optimizer_name,
         lr_cnn,
         lr_fc,
+        weight_decay,
         batch_size,
         num_epochs,
         save_top_path,

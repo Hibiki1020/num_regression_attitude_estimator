@@ -25,4 +25,5 @@ hyperparameter:
   batch_size: 50
   num_epochs: 10
   dropout_rate: 0.1
+  weight_decay: 0.0
   dim_fc_out: 9

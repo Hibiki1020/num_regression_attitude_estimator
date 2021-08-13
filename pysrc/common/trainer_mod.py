@@ -24,6 +24,7 @@ class Trainer:
     optimizer_name,
     lr_cnn,
     lr_fc,
+    weight_decay,
     batch_size,
     num_epochs,
     save_top_path,
@@ -31,6 +32,7 @@ class Trainer:
 
         self.multiGPU = multiGPU
         self.save_top_path = save_top_path
+        self.weight_decay = weight_decay
 
         self.setRandomCondition()
 
