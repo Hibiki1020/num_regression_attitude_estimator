@@ -67,8 +67,8 @@ if __name__ == '__main__':
     dim_fc_out = int(CFG["hyperparameter"]["dim_fc_out"])
 
     try:
-        print("Copy files to %s for further reference." % log_path)
-        copyfile(FLAGS.train_cfg, log_path + "/train_config.yaml")
+        print("Copy files to %s for further reference." % save_top_path)
+        copyfile(FLAGS.train_cfg, save_top_path + "/train_config.yaml")
     except Exception as e:
         print(e)
         print("Error copying files, check permissions. Exiting....")
