@@ -4,7 +4,8 @@ import math
 import torch
 
 class Criterion:
-    def __init__(self):
+    def __init__(self, device):
+        self.device = device
         self.number = 0
 
     def __call__(self, outputs, labels):
