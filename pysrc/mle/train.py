@@ -19,6 +19,7 @@ from common import make_datalist_mod
 from common import data_transform_mod
 from common import dataset_mod
 from common import network_mod
+from common import ozaki_data_transform_mod
 import criterion_mod
 
 
@@ -75,6 +76,7 @@ if __name__ == '__main__':
         print("Error copying files, check permissions. Exiting....")
         quit()
 
+    '''
     train_dataset = dataset_mod.Originaldataset(
         data_list = make_datalist_mod.makeMultiDataList(train_sequences, csv_name),
         transform = data_transform_mod.DataTransform(
@@ -88,6 +90,26 @@ if __name__ == '__main__':
     valid_dataset = dataset_mod.Originaldataset(
         data_list = make_datalist_mod.makeMultiDataList(valid_sequences, csv_name),
         transform = data_transform_mod.DataTransform(
+            resize,
+            mean_element,
+            std_element,
+        ),
+        phase = "valid"
+    )
+    '''
+    train_dataset = dataset_mod.Originaldataset(
+        data_list = make_datalist_mod.makeMultiDataList(train_sequences, csv_name),
+        transform = ozaki_data_transform_mod.DataTransform(
+            resize,
+            mean_element,
+            std_element,
+        ),
+        phase = "train"
+    )
+
+    valid_dataset = dataset_mod.Originaldataset(
+        data_list = make_datalist_mod.makeMultiDataList(valid_sequences, csv_name),
+        transform = ozaki_data_transform_mod.DataTransform(
             resize,
             mean_element,
             std_element,
