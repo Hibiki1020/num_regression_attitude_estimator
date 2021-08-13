@@ -96,7 +96,14 @@ if __name__ == '__main__':
     )
 
     net = network_mod.Network(resize, dim_fc_out=dim_fc_out, dropout_rate=0.1, use_pretrained_vgg=True)
-    criterion = criterion_mod.Criterion()
+
+    if multiGPU == 0:
+        device = torch.device("cuda:0" if torch.cuda.is_available else "cpu")
+    else:
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+    criterion = criterion_mod.Criterion(device)
+    
     trainer = trainer_mod.Trainer(
         method_name,
         train_dataset,
