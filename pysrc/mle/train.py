@@ -94,7 +94,7 @@ if __name__ == '__main__':
         phase = "valid"
     )
 
-    net = network_mod.Network(resize, list_dim_fc_out=dim_fc_out, dropout_rate=0.1, use_pretrained_vgg=True)
+    net = network_mod.Network(resize, dim_fc_out=dim_fc_out, dropout_rate=0.1, use_pretrained_vgg=True)
     criterion = criterion_mod.Criterion()
     trainer = trainer_mod.Trainer(
         method_name,
