@@ -23,9 +23,7 @@ class Trainer:
     criterion,
     optimizer_name,
     lr_cnn,
-    lr_roll_fc,
-    lr_pitch_fc,
-    weight_decay,
+    lr_fc,
     batch_size,
     num_epochs,
     weights_path,
@@ -37,7 +35,6 @@ class Trainer:
         self.log_path = log_path
         self.graph_path = graph_path
         self.multiGPU = multiGPU
-        self.weight_decay = weight_decay
 
         self.setRandomCondition()
 
@@ -51,9 +48,9 @@ class Trainer:
         self.dataloaders_dict = self.getDataloader(train_dataset, valid_dataset, batch_size)
         self.net = self.getSetNetwork(net)
         self.criterion = criterion
-        self.optimizer = self.getOptimizer(optimizer_name, lr_cnn, lr_roll_fc, lr_pitch_fc)
+        self.optimizer = self.getOptimizer(optimizer_name, lr_cnn, lr_fc)
         self.num_epochs = num_epochs
-        self.str_hyperparameter = self.getStrHyperparameter(method_name, train_dataset, optimizer_name, lr_cnn, lr_roll_fc, lr_pitch_fc,batch_size)
+        self.str_hyperparameter = self.getStrHyperparameter(method_name, train_dataset, optimizer_name, lr_cnn, lr_fc, batch_size)
 
     def setRandomCondition(self, keep_reproducibility=False): #Random Training Environment
         #Refer https://nuka137.hatenablog.com/entry/2020/09/01/080038
@@ -90,38 +87,35 @@ class Trainer:
 
         return net
 
-    def getOptimizer(self, optimizer_name, lr_cnn, lr_roll_fc, lr_pitch_fc):
+    def getOptimizer(self, optimizer_name, lr_cnn, lr_fc):
 
         if self.multiGPU == 1 and self.device == 'cuda':
-            list_cnn_param_value, list_roll_fc_param_value, list_pitch_fc_param_value = self.net.module.getParamValueList()
+            list_cnn_param_value, list_fc_param_value = self.net.module.getParamValueList()
         elif self.multiGPU == 0:
-            list_cnn_param_value, list_roll_fc_param_value, list_pitch_fc_param_value = self.net.getParamValueList()
+            list_cnn_param_value, list_fc_param_value = self.net.getParamValueList()
 
         if optimizer_name == "SGD":
             optimizer = optim.SGD([
                 {"params": list_cnn_param_value, "lr": lr_cnn},
-                {"params": list_roll_fc_param_value, "lr": lr_roll_fc},
-                {"params": list_pitch_fc_param_value, "lr": lr_pitch_fc}
+                {"params": list_fc_param_value, "lr": lr_fc},
             ], momentum=0.9, 
             weight_decay=self.weight_decay)
         elif optimizer_name == "Adam":
             optimizer = optim.Adam([
                 {"params": list_cnn_param_value, "lr": lr_cnn},
-                {"params": list_roll_fc_param_value, "lr": lr_roll_fc},
-                {"params": list_pitch_fc_param_value, "lr": lr_pitch_fc}
+                {"params": list_fc_param_value, "lr": lr_fc},
             ], weight_decay=self.weight_decay)
         elif optimizer_name == "AdamW":
             optimizer = optim.AdamW([
                 {"params": list_cnn_param_value, "lr": lr_cnn},
-                {"params": list_roll_fc_param_value, "lr": lr_roll_fc},
-                {"params": list_pitch_fc_param_value, "lr": lr_pitch_fc}
+                {"params": list_fc_param_value, "lr": lr_fc},
             ], weight_decay=self.weight_decay)
 
         print("optimizer")
         print(optimizer)
         return optimizer
 
-    def getStrHyperparameter(self, method_name, dataset, optimizer_name, lr_cnn, lr_roll_fc, lr_pitch_fc, batch_size):
+    def getStrHyperparameter(self, method_name, dataset, optimizer_name, lr_cnn, lr_fc, batch_size):
         str_hyperparameter = method_name \
             + str(len(self.dataloaders_dict["train"].dataset)) + "train" \
             + str(len(self.dataloaders_dict["valid"].dataset)) + "valid" \
@@ -129,8 +123,7 @@ class Trainer:
             + str(dataset.transform.std) + "std" \
             + optimizer_name \
             + str(lr_cnn) + "lrcnn" \
-            + str(lr_roll_fc) + "lrrollfc" \
-            + str(lr_pitch_fc) + "lrpitchfc" \
+            + str(lr_fc) + "lrfc" \
             + str(batch_size) + "batch" \
             + str(self.num_epochs) + "epoch"
         print("str_hyperparameter = ", str_hyperparameter)

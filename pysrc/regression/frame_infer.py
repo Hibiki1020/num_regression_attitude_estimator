@@ -126,9 +126,10 @@ class FrameInfer:
                 img_path = os.path.join(self.infer_dataset_top_directory, row[0])
                 gt_roll = float(row[4])/3.141592*180.0
                 gt_pitch = float(row[5])/3.141592*180.0
+                gt_yaw = float(row[6])/3.141592*180.0
 
                 image_data_list.append(img_path)
-                tmp_row = [row[0], gt_roll, gt_pitch]
+                tmp_row = [row[0], gt_roll, gt_pitch, gt_yaw]
                 data_list.append(tmp_row)
 
         return image_data_list, data_list
@@ -175,7 +176,7 @@ class FrameInfer:
 
             image = cv2.imread(img_path)
             input_tensor = self.transformImage(image)
-            
+
             roll_array, pitch_array, yaw_array = self.prediction(input_tensor)
 
             roll = np.average(roll_array)
