@@ -46,9 +46,6 @@ if __name__ == '__main__':
 
     method_name = CFG["method_name"]
     save_top_path = CFG["save_top_path"]
-    weights_path = CFG["save_top_path"] + CFG["weights_path"]
-    log_path = CFG["save_top_path"] + CFG["log_path"]
-    graph_path = CFG["save_top_path"] + CFG["graph_path"]
     csv_name = CFG["csv_name"]
     multiGPU = int(CFG["multiGPU"])
 
@@ -110,9 +107,7 @@ if __name__ == '__main__':
         lr_fc,
         batch_size,
         num_epochs,
-        weights_path,
-        log_path,
-        graph_path,
+        save_top_path,
         multiGPU
     )
 
