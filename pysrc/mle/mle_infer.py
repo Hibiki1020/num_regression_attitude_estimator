@@ -139,7 +139,7 @@ class MLE_Infer:
             #print("GT Yaw:        " + str(ground_truth[3]) + "[deg]")
 
             #image roll, pitch, GTroll, GTpitch
-            [ground_truth[0], roll, pitch, ground_truth[1], ground_truth[2], roll_var, pitch_var]
+            tmp_result = [ground_truth[0], roll, pitch, ground_truth[1], ground_truth[2], roll_var, pitch_var]
             result_csv.append(tmp_result)
 
             print("Period [s]: ", time.time() - start_clock)
