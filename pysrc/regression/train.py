@@ -70,6 +70,7 @@ if __name__ == '__main__':
     lr_cnn = float(CFG["hyperparameter"]["lr_cnn"])
     lr_roll_fc = float(CFG["hyperparameter"]["lr_roll_fc"])
     lr_pitch_fc = float(CFG["hyperparameter"]["lr_pitch_fc"])
+    lr_fc = float(CFG["hyperparameter"]["lr_fc"])
     weight_decay = float(CFG["hyperparameter"]["weight_decay"])
     batch_size = CFG["hyperparameter"]["batch_size"]
     num_epochs = CFG["hyperparameter"]["num_epochs"]
@@ -123,14 +124,11 @@ if __name__ == '__main__':
         criterion,
         optimizer_name,
         lr_cnn,
-        lr_roll_fc,
-        lr_pitch_fc,
+        lr_fc,
         weight_decay,
         batch_size,
         num_epochs,
-        weights_path,
-        log_path,
-        graph_path,
+        save_top_path,
         multiGPU
     )
 
