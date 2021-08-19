@@ -170,9 +170,9 @@ class MLE_Infer:
             inferenced_x = self.net(input_tensor)
             inferenced_x = inferenced_x.to('cpu').detach().numpy().copy()
 
-            roll_array.append(inferenced_x[0][0])
-            pitch_array.append(inferenced_x[0][1])
-            yaw_array.append(inferenced_x[0][2])
+            roll_array.append(float(inferenced_x[0][0])/3.141592*180.0)
+            pitch_array.append(float(inferenced_x[0][1])/3.141592*180.0)
+            yaw_array.append(float(inferenced_x[0][2])/3.141592*180.0)
 
         return np.array(roll_array), np.array(pitch_array), np.array(yaw_array)
 
