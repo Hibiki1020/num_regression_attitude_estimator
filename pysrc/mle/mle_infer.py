@@ -127,6 +127,10 @@ class MLE_Infer:
             pitch = np.average(pitch_array)
             yaw = np.average(yaw_array)
 
+            roll_var = np.var(roll_array)
+            pitch_var = np.var(pitch_array)
+
+
             print("Infered Roll:  " + str(roll) +  "[deg]")
             print("GT Roll:       " + str(ground_truth[1]) + "[deg]")
             print("Infered Pitch: " + str(pitch) + "[deg]")
@@ -135,7 +139,7 @@ class MLE_Infer:
             #print("GT Yaw:        " + str(ground_truth[3]) + "[deg]")
 
             #image roll, pitch, GTroll, GTpitch
-            tmp_result = [ground_truth[0], roll, pitch, ground_truth[1], ground_truth[2]]
+            [ground_truth[0], roll, pitch, ground_truth[1], ground_truth[2], roll_var, pitch_var]
             result_csv.append(tmp_result)
 
             print("Period [s]: ", time.time() - start_clock)
