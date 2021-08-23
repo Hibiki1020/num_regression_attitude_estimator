@@ -1,17 +1,17 @@
  
 method_name: "regression"
 
-save_top_path: "/home/num_regression_attitude_estimator_log/final_dgx_train_regression"
+save_top_path: "/home/ssd_dir/num_regression_attitude_estimator_log/train_on_luffy_35000"
 weights_path: "/weights"
 log_path: "/log"
 graph_path: "/graph"
 
 train:
-  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
-  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir1_image35000/"
-  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir3_image210000/"
+#  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
+  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/dir1_image35000/"
+#  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir3_image210000/"
 valid:
-  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/valid_image5000/"
+  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/valid_image5000/"
 csv_name: "image_attitude.csv"
 
 multiGPU: 1 #1 is ture
