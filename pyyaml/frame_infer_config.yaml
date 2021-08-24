@@ -6,7 +6,7 @@ csv_name: "image_attitude.csv"
 weights_top_directory: "/home/ssd_dir/num_regression_attitude_estimator_log/train_on_luffy_35000/"
 weights_file_name: "weights.pth"
 
-infer_log_top_directory: "/num_regression_attitude_estimator_log/infer_log/test_08_24_regression_luffy"
+infer_log_top_directory: "/home/ssd_dir/num_regression_attitude_estimator_log/infer_log/test_08_24_regression_luffy"
 infer_log_file_name: "frame_infer_relust.csv"
 
 resize: 224
