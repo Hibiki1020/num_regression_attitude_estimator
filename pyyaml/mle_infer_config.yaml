@@ -7,7 +7,7 @@ weights_top_directory: "/home/ssd_dir/num_regression_attitude_estimator_log/mle/
 weights_file_name: "weights.pth"
 
 infer_log_top_directory: "/home/ssd_dir/num_regression_attitude_estimator_log/infer_log/test_08_24_mle_luffy/"
-infer_log_file_name: "frame_infer_relust2.csv"
+infer_log_file_name: "frame_infer_relust.csv"
 
 resize: 224
 mean_element: 0.5
