@@ -40,6 +40,7 @@ class MLE_Infer:
         self.infer_log_file_name = CFG["infer_log_file_name"]
 
         self.resize = int(CFG["resize"])
+        self.original_size = int(CFG["original_size"])
         self.mean_element = float(CFG["mean_element"])
         self.std_element = float(CFG["std_element"])
         self.dim_fc_out = int(CFG["dim_fc_out"])
@@ -51,7 +52,7 @@ class MLE_Infer:
         #Using only 1 GPU
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         print("self.device ==> ", self.device)
-        self.img_transform = self.getImageTransform(self.resize, self.mean_element, self.std_element)
+        self.img_transform = self.getImageTransform(self.resize, self.original_size,self.mean_element, self.std_element)
         self.net = self.getNetwork(self.resize, self.weights_path, self.dim_fc_out, self.dropout_rate)
         self.do_mc_dropout = self.enable_mc_dropout()
 
@@ -60,14 +61,22 @@ class MLE_Infer:
 
         self.result_csv = []
 
-    def getImageTransform(self, resize, mean_element, std_element):
+    def getImageTransform(self, resize, original_size,mean_element, std_element):
         mean = mean_element
         std = std_element
         size = (resize, resize)
 
+        '''
         img_transform = transforms.Compose([
             transforms.Resize(size),
             transforms.CenterCrop(resize),
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std )
+        ])
+        '''
+        img_transform = transforms.Compose([
+            transforms.CenterCrop(original_size),
+            transforms.Resize(size),
             transforms.ToTensor(),
             transforms.Normalize(mean, std )
         ])
