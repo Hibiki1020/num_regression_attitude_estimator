@@ -20,6 +20,7 @@ from common import data_transform_mod
 from common import dataset_mod
 from common import network_mod
 from common import ozaki_data_transform_mod
+from common import ozaki_dataset_mod
 import criterion_mod
 
 
@@ -97,7 +98,7 @@ if __name__ == '__main__':
         phase = "valid"
     )
     '''
-    train_dataset = dataset_mod.Originaldataset(
+    train_dataset = ozaki_dataset_mod.Originaldataset(
         data_list = make_datalist_mod.makeMultiDataList(train_sequences, csv_name),
         transform = ozaki_data_transform_mod.DataTransform(
             resize,
@@ -107,7 +108,7 @@ if __name__ == '__main__':
         phase = "train"
     )
 
-    valid_dataset = dataset_mod.Originaldataset(
+    valid_dataset = ozaki_dataset_mod.Originaldataset(
         data_list = make_datalist_mod.makeMultiDataList(valid_sequences, csv_name),
         transform = ozaki_data_transform_mod.DataTransform(
             resize,
