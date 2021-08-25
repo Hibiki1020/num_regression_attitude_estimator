@@ -4,7 +4,7 @@ import numpy as np
 
 import torch
 
-class OriginalDataset(data.Dataset):
+class OzakiOriginalDataset(data.Dataset):
     def __init__(self, data_list, transform, phase):
         self.data_list = data_list
         self.transform = transform

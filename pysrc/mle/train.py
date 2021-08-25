@@ -98,7 +98,7 @@ if __name__ == '__main__':
         phase = "valid"
     )
     '''
-    train_dataset = ozaki_dataset_mod.Originaldataset(
+    train_dataset = ozaki_dataset_mod.OzakiOriginaldataset(
         data_list = make_datalist_mod.makeMultiDataList(train_sequences, csv_name),
         transform = ozaki_data_transform_mod.DataTransform(
             resize,
@@ -108,7 +108,7 @@ if __name__ == '__main__':
         phase = "train"
     )
 
-    valid_dataset = ozaki_dataset_mod.Originaldataset(
+    valid_dataset = ozaki_dataset_mod.OzakiOriginaldataset(
         data_list = make_datalist_mod.makeMultiDataList(valid_sequences, csv_name),
         transform = ozaki_data_transform_mod.DataTransform(
             resize,
