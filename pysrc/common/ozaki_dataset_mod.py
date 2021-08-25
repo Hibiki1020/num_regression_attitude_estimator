@@ -28,6 +28,7 @@ class OzakiOriginalDataset(data.Dataset):
 
         ## to numpy
         img_pil = Image.open(img_path)
+        img_pil = img_pil.convert("RGB")
         acc_numpy = np.array(acc_list)
         ## tansform
         img_trans, acc_trans = self.transform(img_pil, acc_numpy, phase=self.phase)
