@@ -1,6 +1,6 @@
 method_name: "regression"
 
-save_top_path: "/home/num_regression_attitude_estimator_log/mle/train_test_08_25/"
+save_top_path: "/home/num_regression_attitude_estimator_log/mle/train_test_08_26/"
 
 train:
   - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
