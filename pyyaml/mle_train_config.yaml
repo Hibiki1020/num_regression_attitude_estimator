@@ -21,7 +21,7 @@ hyperparameter:
   hor_fov_deg: 70
   optimizer_name: "Adam"
   lr_cnn: 1e-5
-  lr_fc: 1e-4
+  lr_fc: 1e-5
   batch_size: 50
   num_epochs: 50
   dropout_rate: 0.1
