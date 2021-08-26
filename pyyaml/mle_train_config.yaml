@@ -3,15 +3,15 @@ method_name: "regression"
 save_top_path: "/home/num_regression_attitude_estimator_log/mle/train_test_08_25/"
 
 train:
-#  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir2_image70000/"
   - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir1_image35000/"
-#  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir3_image210000/"
+  - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/dir3_image210000/"
 #  - "/home/ssd_dir/airsim_dataset_kawai/AirSimNH/range_30_30/valid_image5000/"
 valid:
   - "/home/ssd_dir/AirSimNH/AirSimNH/range_30_30/valid_image5000/"
 csv_name: "image_attitude.csv"
 
-multiGPU: 0 #1 is ture
+multiGPU: 1 #1 is ture
 
 hyperparameter:
   original_size: 672
